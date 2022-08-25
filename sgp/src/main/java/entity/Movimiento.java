@@ -1,11 +1,9 @@
 package entity;
 
-import org.springframework.boot.autoconfigure.web.WebProperties;
-
 import javax.persistence.*;
 
 @Entity
-public class Movimientos {
+public class Movimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

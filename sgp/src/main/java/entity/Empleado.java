@@ -16,7 +16,7 @@ public class Empleado {
     private String correo;
     private Set<Rol> rol = new HashSet<>();
     @OneToMany(mappedBy = "empleado")
-    private List<Movimientos> movimientosList;
+    private List<Movimiento> movimientoList;
     public Empleado(){};
     public Empleado(String nombre, String correo) {
         this.nombre = nombre;

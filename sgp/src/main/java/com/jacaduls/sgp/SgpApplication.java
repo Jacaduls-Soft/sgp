@@ -1,11 +1,9 @@
 package com.jacaduls.sgp;
 
 import entity.Empleado;
-import entity.Movimientos;
+import entity.Movimiento;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -18,7 +16,7 @@ public class SgpApplication {
 		Empleado empleado1 = new Empleado();
 			empleado1.setNombre("Carlos");
 			System.out.println("Resultado Empleado: " + empleado1.getNombre());
-		Movimientos retiro = new Movimientos();
+		Movimiento retiro = new Movimiento();
 
 
 		}

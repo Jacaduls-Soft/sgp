@@ -73,6 +73,10 @@ public class Empleado {
 
     @Override
     public String toString(){
-        return "[Employee info]:\n" + "id: " + this.id + "\nname: " + this.nombre + "\ncorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.rol + "\n";
+        return this.nombre;
+    }
+
+    public void printInfo(){
+        System.out.println("[Empleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.rol + "\n");
     }
 }

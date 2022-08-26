@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class SgpApplication {
@@ -20,18 +23,34 @@ public class SgpApplication {
 
 		Empresa empresa = new Empresa("Corp", "Fake St. 123", "1234568", "111222333");
 
+		empresa.setId(Long.valueOf(1));
 		empresa.printInfo();
 
 
-		Empleado empleado = new Empleado();
-		empleado.setCorreo("test@mail.com");
-		empleado.setNombre("Test employee");
-		empleado.setId(Long.valueOf(1));
-		empleado.setRol(Rol.Admin);
-		empleado.setEmpresa(empresa);
+		Empleado empleado1 = new Empleado();
+		empleado1.setNombre("Montgomery Burns");
+		empleado1.setCorreo("mburns@mail.com");
+		empleado1.setId(Long.valueOf(1));
+		empleado1.setRol(Rol.Admin);
+		empleado1.setEmpresa(empresa);
 
-		System.out.println(empleado.toString());
+		empleado1.printInfo();
 
+		Empleado empleado2 = new Empleado();
+		empleado2.setNombre("Homer Simpson");
+		empleado2.setCorreo("hsimpson@mail.com");
+		empleado2.setId(Long.valueOf(2));
+		empleado2.setRol(Rol.Operario);
+		empleado2.setEmpresa(empresa);
+
+		empleado2.printInfo();
+
+		List<Empleado> empleados = new ArrayList<Empleado>();
+		empleados.add(empleado1);
+		empleados.add(empleado2);
+		empresa.setEmpleados(empleados);
+
+		empresa.printInfo();
 	}
 
 	@GetMapping("/hello")

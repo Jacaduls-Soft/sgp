@@ -64,12 +64,28 @@ public class Empresa {
         this.NIT = NIT;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(List<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
     @Override
     public String toString(){
         return this.nombre;
     }
 
     public void printInfo(){
-        System.out.println("[Enterprise info]:\n" + "id: " + this.id + "\nname: " + this.nombre + "\nNIT: " + this.NIT + "\n");
+        System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: " + this.empleados + "\n");
     }
 }

@@ -3,6 +3,7 @@ package com.jacaduls.sgp;
 import enums.Rol;
 import models.Empleado;
 import models.Empresa;
+import models.Movimiento;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +52,29 @@ public class SgpApplication {
 		empresa.setEmpleados(empleados);
 
 		empresa.printInfo();
+
+		Movimiento movimiento1 = new Movimiento(100000000, "Ingresos");
+		movimiento1.setId(Long.valueOf(1));
+		movimiento1.setEmpleado(empleado2);
+		movimiento1.setEmpresa(empleado2.getEmpresa());
+
+		movimiento1.printInfo();
+
+		Movimiento movimiento2 = new Movimiento(-5000000, "Pago a proveedor");
+		movimiento2.setId(Long.valueOf(2));
+		movimiento2.setEmpleado(empleado2);
+		movimiento2.setEmpresa(empleado2.getEmpresa());
+
+		movimiento2.printInfo();
+
+		List<Movimiento> movimientos = new ArrayList<Movimiento>();
+		movimientos.add(movimiento1);
+		movimientos.add(movimiento2);
+
+		empleado2.setMovimientos(movimientos);
+
+		empleado2.printInfo();
+
 	}
 
 	@GetMapping("/hello")

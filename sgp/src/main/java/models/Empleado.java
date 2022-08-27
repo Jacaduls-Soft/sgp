@@ -31,6 +31,11 @@ public class Empleado {
     public Empleado() {
     }
 
+    public Empleado(String nombre, String correo) {
+        this.nombre = nombre;
+        this.correo = correo;
+    }
+
     public Long getId() {
         return id;
     }
@@ -71,12 +76,20 @@ public class Empleado {
         this.empresa = empresa;
     }
 
+    public List<Movimiento> getMovimientos() {
+        return movimientos;
+    }
+
+    public void setMovimientos(List<Movimiento> movimientos) {
+        this.movimientos = movimientos;
+    }
+
     @Override
     public String toString(){
         return this.nombre;
     }
 
     public void printInfo(){
-        System.out.println("[Empleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.rol + "\n");
+        System.out.println("[Empleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.rol + "\nMovimientos: " + this.movimientos + "\n");
     }
 }

@@ -86,6 +86,7 @@ public class Empresa {
     }
 
     public void printInfo(){
-        System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: " + this.empleados + "\n");
+        if(this.empleados != null) System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: " + this.empleados.size() + "\n");
+        else System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: Aun no hay empleados en esta empresa" + "\n");
     }
 }

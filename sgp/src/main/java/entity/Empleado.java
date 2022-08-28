@@ -1,6 +1,7 @@
 package entity;
 
 import enums.Rol;
+import models.Movimiento;
 
 import javax.persistence.*;
 import java.util.HashSet;

@@ -76,11 +76,11 @@ public class Empleado {
         this.empresa = empresa;
     }
 
-    public List<Movimiento> getMovimientos() {
+    public List<models.Movimiento> getMovimientos() {
         return movimientos;
     }
 
-    public void setMovimientos(List<Movimiento> movimientos) {
+    public void setMovimientos(List<models.Movimiento> movimientos) {
         this.movimientos = movimientos;
     }
 

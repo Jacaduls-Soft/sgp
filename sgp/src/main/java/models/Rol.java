@@ -1,4 +1,4 @@
-package entity;
+package models;
 
 public class Rol {
     private int id;

@@ -14,10 +14,17 @@ public class EmpresaController {
     @Autowired
     private EmpresaRepo repo;
 
-    @GetMapping("/")
+    @GetMapping("/empresa")
     public String EmpresaCont(@RequestParam(name = "name",required = false, defaultValue = "helouu") String name, Model model){
-        Empresa empresa =new Empresa();
-        repo.save(empresa);
+        Empresa emp1 =new Empresa();
+        emp1.setId(Long.valueOf(1));
+        emp1.setNIT("900589");
+        emp1.setNombre("Cars");
+        emp1.setDireccion("Cra 3 #1");
+        emp1.setTelefono("54521");
+
+
+        repo.save(emp1);
         model.addAttribute("name",name);
         return "index";
     }

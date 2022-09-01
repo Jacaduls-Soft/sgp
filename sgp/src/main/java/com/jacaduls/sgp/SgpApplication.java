@@ -22,7 +22,8 @@ public class SgpApplication {
 
 		SpringApplication.run(SgpApplication.class, args);
 
-		Empresa empresa = new Empresa("Corp", "Fake St. 123", "1234568", "111222333");
+		/*
+			Empresa empresa = new Empresa("Corp", "Fake St. 123", "1234568", "111222333");
 
 		empresa.setId(Long.valueOf(1));
 		empresa.printInfo();
@@ -74,6 +75,7 @@ public class SgpApplication {
 		empleado2.setMovimientos(movimientos);
 
 		empleado2.printInfo();
+		*/
 
 	}
 

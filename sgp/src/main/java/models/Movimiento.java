@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 public class Movimiento {
-    private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
     private int monto;
     private String concepto;
 

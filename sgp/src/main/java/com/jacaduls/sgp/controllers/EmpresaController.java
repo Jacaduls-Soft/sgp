@@ -12,9 +12,9 @@ public class EmpresaController {
         Empresa empresa = new Empresa("MIT", "Fake address 123", "318765676", "1-90988288");
         return empresa;
     }
-    @RequestMapping(value = "/enterprise/{id}")
-    public Empresa addEmpresa(@PathVariable Long id) {
-        Empresa empresa = new Empresa("MIT", "Fake address 123", "318765676", "1-123123123");
+    @RequestMapping(value = "/enterprise/{id}&{nit}")
+    public Empresa addEmpresa(@PathVariable Long id, @PathVariable String nit) {
+        Empresa empresa = new Empresa("MIT", "Fake address 123", "318765676", nit);
         empresa.setId(id);
         return empresa;
     }

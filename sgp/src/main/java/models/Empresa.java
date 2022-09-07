@@ -17,14 +17,10 @@ public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private long id;
-
+    private Long id;
     private String nombre;
-
     private String direccion;
-
     private String telefono;
-
     private String NIT;
 
     @OneToMany(mappedBy = "id",fetch = FetchType.LAZY)

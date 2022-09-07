@@ -1,7 +1,6 @@
-package models;
+package services;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,10 +16,10 @@ public class Empresa {
     private String NIT;
 
     @OneToMany(mappedBy = "empresa")
-    private List<Empleado> empleados;
+    private List<Empleado> empleado;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Movimiento> movimientos;
+    @OneToMany(mappedBy = "empress")
+    private List<services.Movimiento> movimientos;
 
     public Empresa() {
     }
@@ -72,12 +71,12 @@ public class Empresa {
         this.id = id;
     }
 
-    public List<Empleado> getEmpleados() {
-        return empleados;
+    public List<Empleado> getEmpleado() {
+        return empleado;
     }
 
-    public void setEmpleados(List<Empleado> empleados) {
-        this.empleados = empleados;
+    public void setEmpleados(List<Empleado> empleado) {
+        this.empleado = empleado;
     }
 
     @Override
@@ -86,7 +85,7 @@ public class Empresa {
     }
 
     public void printInfo(){
-        if(this.empleados != null) System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: " + this.empleados.size() + "\n");
+        if(this.empleado != null) System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: " + this.empleado.size() + "\n");
         else System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: Aun no hay empleados en esta empresa" + "\n");
     }
 }

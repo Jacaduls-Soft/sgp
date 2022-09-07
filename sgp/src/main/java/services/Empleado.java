@@ -1,11 +1,11 @@
-package models;
+package services;
 
 import java.util.List;
 
 import javax.persistence.*;
 import enums.Rol;
 
-
+//vea
 @Entity
 public class Empleado {
 //    private @Id @GeneratedValue Long id;
@@ -15,8 +15,7 @@ public class Empleado {
     private String correo;
 
     @OneToMany(mappedBy = "empleado")
-    private List<models.Movimiento> movimientos;
-//    private Empresa empresa;
+    private List<services.Movimiento> movimientos;
 
     @ManyToOne
     @JoinColumn(name = "empresa_id")
@@ -76,11 +75,11 @@ public class Empleado {
         this.empresa = empresa;
     }
 
-    public List<models.Movimiento> getMovimientos() {
+    public List<services.Movimiento> getMovimientos() {
         return movimientos;
     }
 
-    public void setMovimientos(List<models.Movimiento> movimientos) {
+    public void setMovimientos(List<services.Movimiento> movimientos) {
         this.movimientos = movimientos;
     }
 

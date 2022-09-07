@@ -1,6 +1,6 @@
 package entity;
 
-import models.Movimiento;
+import services.Movimiento;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

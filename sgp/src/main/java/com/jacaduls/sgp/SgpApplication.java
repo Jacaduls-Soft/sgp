@@ -49,11 +49,11 @@ public class SgpApplication {
 		List<Empleado> empleados = new ArrayList<Empleado>();
 		empleados.add(empleado1);
 		empleados.add(empleado2);
-		empresa.setEmpleados(empleados);
+		empresa.setEmpleados((ArrayList<Empleado>) empleados);
 
 		empresa.printInfo();
 
-		Movimiento movimiento1 = new Movimiento(100000000, "Ingresos");
+		Movimiento movimiento1 = new Movimiento(100000000, "Pago mes de Agosto");
 		movimiento1.setId(Long.valueOf(1));
 		movimiento1.setEmpleado(empleado2);
 		movimiento1.setEmpresa(empleado2.getEmpresa());

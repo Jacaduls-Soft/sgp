@@ -25,6 +25,7 @@ public class EmpresaController {
 
 
         repo.save(emp1);
+
         model.addAttribute("name",name);
         return "index";
     }

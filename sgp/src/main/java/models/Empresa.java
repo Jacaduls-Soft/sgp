@@ -1,23 +1,34 @@
 package models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Empresa {
-    private @Id @GeneratedValue Long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private long id;
+
     private String nombre;
+
     private String direccion;
+
     private String telefono;
+
     private String NIT;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Empleado> empleados;
+    @OneToMany(mappedBy = "id",fetch = FetchType.LAZY)
+    private ArrayList<Empleado> empleados;
 
     @OneToMany(mappedBy = "empresa")
     private List<Movimiento> movimientos;
@@ -32,51 +43,13 @@ public class Empresa {
         this.NIT = NIT;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getNIT() {
-        return NIT;
-    }
-
-    public void setNIT(String NIT) {
-        this.NIT = NIT;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public List<Empleado> getEmpleados() {
         return empleados;
     }
 
-    public void setEmpleados(List<Empleado> empleados) {
+    public void setEmpleados(ArrayList<Empleado> empleados) {
+
         this.empleados = empleados;
     }
 

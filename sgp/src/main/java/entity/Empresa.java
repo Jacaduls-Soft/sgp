@@ -1,4 +1,4 @@
-package models;
+package entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +13,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Empresa {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
     private String nombre;
     private String direccion;

@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.*;
 import enums.Rol;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,19 +15,16 @@ public class Empleado {
 
 //    private @Id @GeneratedValue Long id;
 
-    private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String nombre;
-
     private String correo;
-
     @OneToMany(mappedBy = "empleado")
-    private List<entity.Movimiento> movimientos;
-
+    private List<Movimiento> movimientos;
     @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
-
     //    private Rol rol;
     @Enumerated(value = EnumType.STRING)
     @Column(name="rol")

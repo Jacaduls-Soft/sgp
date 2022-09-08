@@ -1,11 +1,8 @@
 package controller;
 
-import models.Empresa;
+import entity.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.quartz.QuartzTransactionManager;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import repository.EmpresaRepo;
 import services.EmpresaServices;
 
 import java.util.List;
@@ -21,6 +18,7 @@ public class EmpresaController {
     }
     @PostMapping("/empresa")
     private void crearEmpresa(@RequestBody Empresa empresa){
+
         empresaServices.CrearEmpresa(empresa);
     }
     @DeleteMapping("/empresa/{id}")   //patvariable desde url

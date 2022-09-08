@@ -1,25 +1,33 @@
-package entity;
+package models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Empresa")
+@Getter
+@Setter
 public class Empresa {
+
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO);
-    private  Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private Long id;
     private String nombre;
     private String direccion;
     private String telefono;
     private String NIT;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Empleado> empleado;
+    @OneToMany(mappedBy = "id",fetch = FetchType.LAZY)
+    private ArrayList<Empleado> empleados;
 
-    @OneToMany(mappedBy = "empress")
-    private List<entity.Movimiento> movimientos;
+    @OneToMany(mappedBy = "empresa")
+    private List<Movimiento> movimientos;
 
     public Empresa() {
     }
@@ -31,52 +39,14 @@ public class Empresa {
         this.NIT = NIT;
     }
 
-    public String getNombre() {
-        return nombre;
+
+    public List<Empleado> getEmpleados() {
+        return empleados;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public void setEmpleados(ArrayList<Empleado> empleados) {
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getNIT() {
-        return NIT;
-    }
-
-    public void setNIT(String NIT) {
-        this.NIT = NIT;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Empleado> getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleados(List<Empleado> empleado) {
-        this.empleado = empleado;
+        this.empleados = empleados;
     }
 
     @Override
@@ -85,7 +55,7 @@ public class Empresa {
     }
 
     public void printInfo(){
-        if(this.empleado != null) System.out.println("[ServEmpresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: " + this.empleado.size() + "\n");
-        else System.out.println("[ServEmpresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: Aun no hay empleados en esta empresa" + "\n");
+        if(this.empleados != null) System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: " + this.empleados.size() + "\n");
+        else System.out.println("[Empresa info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nDireccion: " + this.direccion + "\nNIT: " + this.NIT + "\nEmpleados: Aun no hay empleados en esta empresa" + "\n");
     }
 }

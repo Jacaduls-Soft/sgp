@@ -1,27 +1,46 @@
 package entity;
 
-import enums.Rol;
-import services.Movimiento;
+import java.util.List;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import enums.Rol;
 
+//vea
 @Entity
 public class Empleado {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)// asigna id incremental
-    private long id;
+//    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
+
     private String nombre;
     private String correo;
-    private Set<Rol> rol = new HashSet<>();
+
     @OneToMany(mappedBy = "empleado")
-    private List<Movimiento> movimientoList;
-    public Empleado(){};
+    private List<entity.Movimiento> movimientos;
+
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
+
+    //    private Rol rol;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name="rol")
+    private Rol rol;
+
+
+    public Empleado() {
+    }
+
     public Empleado(String nombre, String correo) {
         this.nombre = nombre;
         this.correo = correo;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -40,11 +59,37 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public Set<Rol> getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(Set<Rol> rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public List<entity.Movimiento> getMovimientos() {
+        return movimientos;
+    }
+
+    public void setMovimientos(List<entity.Movimiento> movimientos) {
+        this.movimientos = movimientos;
+    }
+
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
+
+    public void printInfo(){
+        if(movimientos != null) System.out.println("[ServEmpleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nServEmpresa: " + this.empresa + "\nRol: " + this.rol + "\nMovimientos: " + this.movimientos + "\n");
+        else System.out.println("[ServEmpleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nServEmpresa: " + this.empresa + "\nRol: " + this.rol + "\nMovimientos: El empleado aun no realiza movimientos" + "\n");
     }
 }

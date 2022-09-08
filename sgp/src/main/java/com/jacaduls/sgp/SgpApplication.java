@@ -1,9 +1,9 @@
 package com.jacaduls.sgp;
 
 import enums.Rol;
-import services.Empleado;
-import services.Empresa;
-import services.Movimiento;
+import entity.Empleado;
+import entity.Empresa;
+import entity.Movimiento;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;

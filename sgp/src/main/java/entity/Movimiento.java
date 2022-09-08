@@ -1,4 +1,4 @@
-package services;
+package entity;
 
 import javax.persistence.*;
 
@@ -8,12 +8,12 @@ public class Movimiento {
     private int monto;
     private String concepto;
 
-    //    private  Empleado empleado;
+    //    private  ServEmpleado empleado;
     @ManyToOne
     @JoinColumn(name = "empleado_id")
     private Empleado empleado;
 
-    //    private Empresa empresa;
+    //    private ServEmpresa empresa;
     @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
@@ -71,6 +71,6 @@ public class Movimiento {
     }
 
     public void printInfo(){
-        System.out.println("[Movimiento info]:\n" + "Id: " + this.id + "\nConcepto: " + this.concepto + "\nMonto: " + this.monto + "\nUsuario: " + this.empleado + "\nEmpresa: " + this.empresa + "\n");
+        System.out.println("[Movimiento info]:\n" + "Id: " + this.id + "\nConcepto: " + this.concepto + "\nMonto: " + this.monto + "\nUsuario: " + this.empleado + "\nServEmpresa: " + this.empresa + "\n");
     }
 }

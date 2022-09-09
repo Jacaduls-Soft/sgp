@@ -9,6 +9,7 @@ import lombok.Setter;
 
 //vea
 @Entity
+@Table(name = "empleado")
 @Getter
 @Setter
 public class Empleado {
@@ -18,7 +19,9 @@ public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "correo")
     private String correo;
     @OneToMany(mappedBy = "empleado")
     private List<Movimiento> movimientos;

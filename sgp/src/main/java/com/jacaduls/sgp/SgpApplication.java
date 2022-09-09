@@ -56,14 +56,14 @@ public class SgpApplication {
 		Movimiento movimiento1 = new Movimiento(100000000, "Pago mes de Agosto");
 		movimiento1.setId(Long.valueOf(1));
 		movimiento1.setEmpleado(empleado2);
-		movimiento1.setEmpresa(empleado2.getEmpresa());
+//		movimiento1.setEmpresa(empleado2.getEmpresa());
 
 		movimiento1.printInfo();
 
 		Movimiento movimiento2 = new Movimiento(-5000000, "Pago a proveedor");
 		movimiento2.setId(Long.valueOf(2));
 		movimiento2.setEmpleado(empleado2);
-		movimiento2.setEmpresa(empleado2.getEmpresa());
+//		movimiento2.setEmpresa(empleado2.getEmpresa());
 
 		movimiento2.printInfo();
 

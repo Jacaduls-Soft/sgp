@@ -1,30 +1,35 @@
 package services;
 
-import entity.Movimiento;
+import entity.Empresa;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.quartz.QuartzTransactionManager;
+import org.springframework.stereotype.Service;
+import repository.EmpresaRepo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Service
 public class ServEmpresa {
-    private @Id
-    @GeneratedValue Long id;
-    private String nombre;
-    private String direccion;
-    private String telefono;
-    private String NIT;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<ServEmpleado> empleados;
+    @Autowired
+    EmpresaRepo repoEmpresa;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Movimiento> movimientos;
+    public void CrearEmpresa(Empresa empresa){
 
-    public ServEmpresa() {
+        repoEmpresa.save(empresa);
     }
+    public List verEmpresa(){
+        List<Empresa>empresaList = new ArrayList<Empresa>();
+        empresaList.addAll(repoEmpresa.findAll());
+        return empresaList;
+    }
+    public void EliminarEmpresa( Long id){
+
+        repoEmpresa.deleteById(Math.toIntExact(id));
+    }
+    public void EditarEmpresa(){}
+
 
 
 }

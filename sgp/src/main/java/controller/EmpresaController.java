@@ -3,7 +3,7 @@ package controller;
 import entity.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import services.EmpresaServices;
+import services.ServEmpresa;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class EmpresaController {
     //Comunicacion controler con services
     @Autowired
-    EmpresaServices empresaServices;
+    ServEmpresa empresaServices;
     @GetMapping("/empresa")
     private List<Empresa> verEmpresa(){
         return empresaServices.verEmpresa();

@@ -24,8 +24,8 @@ public class Empresa {
     @OneToMany(mappedBy = "id",fetch = FetchType.LAZY)
     private ArrayList<Empleado> empleados;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Movimiento> movimientos;
+//    @OneToMany(mappedBy = "empresa")
+//    private List<Movimiento> movimientos;
 
     public Empresa() {
     }

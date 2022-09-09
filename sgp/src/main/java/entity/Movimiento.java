@@ -1,11 +1,20 @@
 package entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Movimiento {
-    private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "monto")
     private int monto;
+    @Column(name = "concepto")
     private String concepto;
 
     //    private  ServEmpleado empleado;
@@ -14,9 +23,9 @@ public class Movimiento {
     private Empleado empleado;
 
     //    private ServEmpresa empresa;
-    @ManyToOne
-    @JoinColumn(name = "empresa_id")
-    private Empresa empresa;
+//    @ManyToOne
+//    @JoinColumn(name = "empresa_id")
+//    private Empresa empresa;
 
     public Movimiento() {
     }
@@ -26,51 +35,12 @@ public class Movimiento {
         this.concepto = concepto;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getMonto() {
-        return monto;
-    }
-
-    public void setMonto(int monto) {
-        this.monto = monto;
-    }
-
-    public String getConcepto() {
-        return concepto;
-    }
-
-    public void setConcepto(String concepto) {
-        this.concepto = concepto;
-    }
-
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
     @Override
     public String toString() {
         return this.concepto;
     }
 
     public void printInfo(){
-        System.out.println("[Movimiento info]:\n" + "Id: " + this.id + "\nConcepto: " + this.concepto + "\nMonto: " + this.monto + "\nUsuario: " + this.empleado + "\nServEmpresa: " + this.empresa + "\n");
+        System.out.println("[Movimiento info]:\n" + "Id: " + this.id + "\nConcepto: " + this.concepto + "\nMonto: " + this.monto + "\nUsuario: "+ this.empleado );
     }
 }

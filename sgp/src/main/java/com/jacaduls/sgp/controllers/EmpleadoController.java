@@ -5,11 +5,14 @@ import java.lang.RuntimeException;
 import com.jacaduls.sgp.repositories.EmpleadoRepository;
 import com.jacaduls.sgp.entities.Empleado;
 import com.jacaduls.sgp.services.EmpleadoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EmpleadoController {
 
+    @Autowired
     private EmpleadoService service;
 
     @GetMapping("/users")
@@ -34,5 +37,13 @@ public class EmpleadoController {
     @DeleteMapping("/users/{id}")
     void deleteEmployee(@PathVariable Long id){
         service.delete(id);
+    }
+
+    //nuevos metodos
+    @GetMapping("/enterprises/{id_empresa}/users")
+    String getUsersByEnterpriseId(@RequestParam(defaultValue = "-1") Long id, Model model) {
+        if(id.equals("-1")) return "users_error";
+        List<Empleado> empleados = service.getEmpleadosByEmpresaId(id);
+        return "users";
     }
 }

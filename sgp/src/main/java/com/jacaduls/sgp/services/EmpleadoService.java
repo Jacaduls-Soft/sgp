@@ -38,4 +38,10 @@ public class EmpleadoService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    //nuevos metodos
+
+    public List<Empleado> getEmpleadosByEmpresaId(Long id){
+        return repository.getEmpleadosByEmpresaId(id);
+    }
 }

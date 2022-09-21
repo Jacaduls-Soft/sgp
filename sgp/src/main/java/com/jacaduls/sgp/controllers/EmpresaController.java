@@ -1,15 +1,17 @@
 package com.jacaduls.sgp.controllers;
-import com.jacaduls.sgp.repositories.EmpresaRepository;
 import com.jacaduls.sgp.entities.Empresa;
 import com.jacaduls.sgp.services.EmpresaService;
 import org.springframework.web.bind.annotation.*;
-//import repositories.EmpresaRepository;
 import java.util.List;
 
 @RestController
 public class EmpresaController {
 
-    EmpresaService service;
+    private final EmpresaService service;
+
+    public EmpresaController(EmpresaService service) {
+        this.service = service;
+    }
 
     @GetMapping("/enterprises")
     List<Empresa> all(){

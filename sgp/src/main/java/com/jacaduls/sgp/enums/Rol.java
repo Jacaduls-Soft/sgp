@@ -4,7 +4,7 @@ public enum Rol {
     Admin("Admin"),
     Operario("Operario");
 
-    String value;
+    final String value;
 
     Rol(String value) {
         this.value = value;

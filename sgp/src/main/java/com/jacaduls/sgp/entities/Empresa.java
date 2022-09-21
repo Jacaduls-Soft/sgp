@@ -1,5 +1,7 @@
 package com.jacaduls.sgp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -14,7 +16,7 @@ public class Empresa {
     private String direccion;
     private String telefono;
     private String NIT;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "empresa")
     private List<Empleado> empleados;
 

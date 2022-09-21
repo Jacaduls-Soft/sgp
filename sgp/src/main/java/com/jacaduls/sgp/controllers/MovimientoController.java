@@ -1,41 +1,56 @@
 package com.jacaduls.sgp.controllers;
 
 import com.jacaduls.sgp.entities.Movimiento;
-import com.jacaduls.sgp.repositories.MovimientoRepository;
 
 import com.jacaduls.sgp.services.MovimientoService;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class MovimientoController {
 
-    MovimientoService service;
+    private final MovimientoService service;
 
-
-    @GetMapping("enterprises/{id_empresa}/movements")
-    ResponseEntity<List<Movimiento>> getMovimientosByEnterpriseId(@RequestParam Long id_empresa){
-        return service.getByEnterpriseById(id_empresa);
+    public MovimientoController(MovimientoService service) {
+        this.service = service;
     }
 
-    @PostMapping("enterprises/{id_empresa}/movements")
-    Movimiento addMovimiento (@RequestBody Movimiento newMovimiento) {
-        return service.add(newMovimiento);
+    @GetMapping("/enterprises/{id}/movements")
+    ResponseEntity<List<Movimiento>> getMovimientosByEnterpriseId(@PathVariable Long id){
+        return service.getByEnterpriseById(id);
     }
 
-    @PatchMapping("enterprises/{id_empresa}/movements")
-    Movimiento editarMovimiento(@RequestParam Long id) {
-        return service.edit(id);
+//    @PostMapping("/enterprises/{id}/movements")
+//    Movimiento addMovimiento (@RequestBody Movimiento newMovimiento, @PathVariable Long id) {
+//        return service.add(id, newMovimiento);
+//    }
+
+    @PostMapping("/enterprises/{id}/movements")
+    ResponseEntity<Movimiento> addMovimiento (@RequestBody Movimiento newMovimiento, @PathVariable Long id) {
+        return service.add(id, newMovimiento);
     }
 
-    @DeleteMapping("enterprises/{id_empresa}/movements")
-    void deleteMovimiento(@RequestParam Long id) {
-        service.delete(id);
+//    @PatchMapping("/enterprises/{id}/movements")
+//    Movimiento editarMovimiento(@RequestBody Movimiento newMovimiento, @PathVariable Long id) {
+//        return service.edit(newMovimiento, id);
+//    }
+
+    @PatchMapping("/enterprises/{id}/movements")
+    ResponseEntity<Movimiento> editMovimiento(@RequestBody Movimiento newMovimiento, @PathVariable Long id) {
+        return service.edit(newMovimiento, id);
     }
+
+    @DeleteMapping("/enterprises/{id}/movements")
+    void deleteMovimientos(@PathVariable Long id) {
+        service.deleteAll(id);
+    }
+
+    @DeleteMapping("/movements/{id}")
+    void deleteMovimiento(@PathVariable Long id){
+        service.deleteOne(id);
+    }
+
+
 }

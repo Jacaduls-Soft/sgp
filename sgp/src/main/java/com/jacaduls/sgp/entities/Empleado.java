@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jacaduls.sgp.enums.Rol;
 
 
@@ -15,10 +16,12 @@ public class Empleado {
     private String nombre;
     private String correo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "empleado")
     private List<Movimiento> movimientos;
 //    private Empresa empresa;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;

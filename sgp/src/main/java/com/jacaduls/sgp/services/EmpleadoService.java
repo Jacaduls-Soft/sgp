@@ -2,15 +2,18 @@ package com.jacaduls.sgp.services;
 
 import com.jacaduls.sgp.entities.Empleado;
 import com.jacaduls.sgp.repositories.EmpleadoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class EmpleadoService {
-    @Autowired
-    EmpleadoRepository repository;
+    private final EmpleadoRepository repository;
+
+    public EmpleadoService(EmpleadoRepository repository) {
+        this.repository = repository;
+    }
+
     public List<Empleado> getAll(){
         return repository.findAll();
     }

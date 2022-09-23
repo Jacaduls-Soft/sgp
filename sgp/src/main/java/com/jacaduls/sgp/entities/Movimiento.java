@@ -1,5 +1,4 @@
 package com.jacaduls.sgp.entities;
-
 import javax.persistence.*;
 
 @Entity

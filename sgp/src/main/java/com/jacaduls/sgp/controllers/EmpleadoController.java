@@ -14,26 +14,26 @@ public class EmpleadoController {
         this.service = service;
     }
 
-    @GetMapping("/users")
+    @GetMapping("/employees")
     List<Empleado> all(){
         return service.getAll();
     }
 
-    @PostMapping("/users")
+    @PostMapping("/employees")
     Empleado newEmpleado(@RequestBody Empleado newEmpleado) {
         return service.add(newEmpleado);
     }
-    @GetMapping("/users/{id}")
+    @GetMapping("/employees/{id}")
     Empleado one(@PathVariable Long id){
         return service.getById(id);
     }
 
-    @PatchMapping("/users/{id}")
+    @PatchMapping("/employees/{id}")
     Empleado newEmpleado(@RequestBody Empleado newEmpleado, @PathVariable Long id){
         return service.edit(newEmpleado, id);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/employees/{id}")
     void deleteEmployee(@PathVariable Long id){
         service.delete(id);
     }

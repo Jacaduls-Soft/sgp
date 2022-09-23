@@ -6,6 +6,9 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jacaduls.sgp.enums.Rol;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.stereotype.Controller;
 
 
 @Entity
@@ -14,10 +17,12 @@ public class Empleado {
     private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
 
     private String nombre;
+
+    @Column(unique = true)
     private String correo;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "empleado")
+    @OneToMany(mappedBy = "empleado", orphanRemoval = true, cascade = CascadeType.REMOVE)
     private List<Movimiento> movimientos;
 //    private Empresa empresa;
 
@@ -28,8 +33,16 @@ public class Empleado {
 
     //    private Rol rol;
     @Enumerated(value = EnumType.STRING)
+//    @ElementCollection(targetClass = Rol.class, fetch = FetchType.LAZY)
+    @ElementCollection(targetClass = Rol.class, fetch = FetchType.EAGER)
     @Column(name="rol")
-    private Rol rol;
+//    private Rol rol;
+    private List<Rol> roles;
+
+    @JsonIgnore
+    @OneToOne
+//    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
 
     public Empleado() {
@@ -64,12 +77,12 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public Rol getRol() {
-        return rol;
+    public List<Rol> getRoles() {
+        return roles;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
     }
 
     public Empresa getEmpresa() {
@@ -88,13 +101,21 @@ public class Empleado {
         this.movimientos = movimientos;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString(){
         return this.nombre;
     }
 
     public void printInfo(){
-        if(movimientos != null) System.out.println("[Empleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.rol + "\nMovimientos: " + this.movimientos + "\n");
-        else System.out.println("[Empleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.rol + "\nMovimientos: El empleado aun no realiza movimientos" + "\n");
+        if(movimientos != null) System.out.println("[Empleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.roles + "\nMovimientos: " + this.movimientos + "\n");
+        else System.out.println("[Empleado info]:\n" + "Id: " + this.id + "\nNombre: " + this.nombre + "\nCorreo: " + this.correo + "\nEmpresa: " + this.empresa + "\nRol: " + this.roles + "\nMovimientos: El empleado aun no realiza movimientos" + "\nUsuario: " + this.usuario +"\n");
     }
 }

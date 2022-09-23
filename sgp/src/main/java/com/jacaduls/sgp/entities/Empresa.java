@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Empresa {
@@ -17,10 +14,10 @@ public class Empresa {
     private String telefono;
     private String NIT;
     @JsonIgnore
-    @OneToMany(mappedBy = "empresa")
+    @OneToMany(mappedBy = "empresa", orphanRemoval = true, cascade = CascadeType.REMOVE)
     private List<Empleado> empleados;
 
-    @OneToMany(mappedBy = "empresa")
+    @OneToMany(mappedBy = "empresa", orphanRemoval = true, cascade = CascadeType.REMOVE)
     private List<Movimiento> movimientos;
 
     public Empresa() {

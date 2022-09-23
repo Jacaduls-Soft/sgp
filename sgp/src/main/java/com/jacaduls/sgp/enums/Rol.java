@@ -1,8 +1,8 @@
 package com.jacaduls.sgp.enums;
 
 public enum Rol {
-    Admin("Admin"),
-    Operario("Operario");
+    ROLE_ADMIN("ROLE_ADMIN"),
+    ROLE_OPERARIO("ROLE_OPERARIO");
 
     final String value;
 

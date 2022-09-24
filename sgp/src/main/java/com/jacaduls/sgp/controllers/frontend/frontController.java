@@ -41,7 +41,7 @@ public class frontController {
     @GetMapping("/users")
     public String getUsers(Model model){
         model.addAttribute("users",usuarioService.getAll());
-        return "users";
+        return "pages/users";
     }
 
     @GetMapping("/login")

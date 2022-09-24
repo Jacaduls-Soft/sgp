@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital@0;1&family=DM+Serif+Display&family=Nabla&display=swap" rel="stylesheet"> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $("#table").DataTable();
+        })
+    </script>
+    <title>Table</title>
+</head>
+<body>
+    <section class="side-bar">
+        <div class="logo">
+            <h2>JACADULS SOFT</h2>
+        </div>
+        <div class="lista">
+            <ul>
+                <li> <a href="#">Movimientos</a> </li>
+                <li> <a href="#">Usuarios</a> </li>
+                <li> <a href="#">Empresas</a> </li>
+            </ul>
+        </div>
+    </section>
+    <section class="main">
+        <div class="header">
+            <h2>Sistema de gestión de ingresos y gastos</h2>
+            <span>Ingresos y egresos</span>
+            <div class="boton-box">
+                <a href="./pages/nuevo.html"><button>Nuevo</button></a>
+            </div>
+        </div>
+        <table id="table" class="display">
+            <thead>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cedula</th>
+                <th>Ciudad</th>
+                <th>Direccion</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dujardin</td>
+                    <td>Pizarro</td>
+                    <td>1006490885</td>
+                    <td>Buga</td>
+                    <td>Carrera 10 # 15 18</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Gabriela</td>
+                    <td>Polanco</td>
+                    <td>1912313112</td>
+                    <td>Caicedonia</td>
+                    <td>Calle 2 # 2 18</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

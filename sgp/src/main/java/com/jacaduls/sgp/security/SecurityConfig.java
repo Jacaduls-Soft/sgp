@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users**").hasRole("ADMIN")
                 .antMatchers("/delete/users/**").hasRole("ADMIN")
                 .antMatchers("/employees*").hasRole("ADMIN")
+                .antMatchers("/enterprises*").hasRole("ADMIN")
                 .antMatchers("/").permitAll()
                 .antMatchers("/login*").permitAll()
 
@@ -54,9 +55,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login");
-
-
-
-
     }
 }

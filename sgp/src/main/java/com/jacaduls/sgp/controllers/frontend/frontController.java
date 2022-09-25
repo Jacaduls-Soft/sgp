@@ -9,11 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import com.jacaduls.sgp.services.EmpleadoService;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +30,10 @@ public class frontController {
     private EmpresaService empresaService;
 
 
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
     @GetMapping("/home")
     public String getIndex(){
         return "index";
@@ -41,13 +42,13 @@ public class frontController {
     @GetMapping("/users")
     public String getUsers(Model model){
         model.addAttribute("users",usuarioService.getAll());
-        return "users";
+        return "pages/users";
     }
 
     @GetMapping("/login")
     public String getLogin(Model model){
         model.addAttribute("user", new Usuario());
-        return "login";
+        return "pages/login";
     }
 
     @GetMapping("/create/user")
@@ -57,13 +58,14 @@ public class frontController {
     }
 
     @PostMapping("/create/user")
-    public String postCreateUser(@ModelAttribute Usuario usuario){
-
+    public String postCreateUser(@ModelAttribute Usuario usuario, Model model){
+        model.addAttribute("usuario", usuario);
+        usuarioService.add(usuario);
+        return "pages/createUser";
 //        usuario.printInfo();
 
-        usuarioService.add(usuario);
 
-        return "redirect:/create/user/"+ usuario.getCorreo() +"/employee";
+//        return "redirect:/create/user/"+ usuario.getCorreo() +"/employee";
 //        return "redirect:/create/employee";
     }
 
@@ -129,6 +131,7 @@ public class frontController {
 //    @PostMapping("/login")
 //    public String postLogin(@ModelAttribute("user") Usuario usuario)
 //    {
+//        System.out.println("Entró al maldito metodo de login");
 //        usuario.printInfo();
 //        return "redirect:/home";
 //    }

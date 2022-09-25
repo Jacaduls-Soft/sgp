@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -18,7 +20,7 @@
             <form method="post" th:object="${user}" th:action="@{/login}">
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" th:field="*{correo}" id="email" aria-describedby="emailHelp" placeholder="Enter email" >
+                    <input type="email" class="form-control" th:field="*{correo}" id="email" aria-describedby="emailHelp" placeholder="Enter an email" >
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">

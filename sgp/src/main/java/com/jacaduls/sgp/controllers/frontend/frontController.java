@@ -44,6 +44,12 @@ public class frontController {
         model.addAttribute("users",usuarioService.getAll());
         return "pages/users";
     }
+    @GetMapping("/enterprise")
+    public String getEnterprises(Model model){
+        model.addAttribute("enterprises",empresaService.getAll());
+        System.out.println(empresaService.getAll() + "22222222222222222222222222222");
+        return "pages/enterprises";
+    }
 
     @GetMapping("/login")
     public String getLogin(Model model){
@@ -54,7 +60,7 @@ public class frontController {
     @GetMapping("/create/user")
     public String getCreateUser(Model model){
         model.addAttribute("user", new Usuario());
-        return "/pages/nuevo";
+        return "/pages/nuevoUsuario";
     }
 
     @PostMapping("/create/user")

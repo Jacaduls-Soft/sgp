@@ -13,10 +13,10 @@ public class EmpresaController {
         this.service = service;
     }
 
-    @GetMapping("/enterprises")
-    List<Empresa> all(){
-        return service.getAll();
-    }
+//    @GetMapping("/enterprises")
+//    List<Empresa> all(){
+//        return service.getAll();
+//    }
 
     @PostMapping("/enterprises")
     Empresa newEmpresa(@RequestBody Empresa newEmpresa){

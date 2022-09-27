@@ -29,7 +29,7 @@
             $("#table").DataTable();
         })
     </script>
-    <title>Usuarios</title>
+    <title>Empresas</title>
 </head>
 <body>
 <main sec:authorize="isAuthenticated()">
@@ -55,20 +55,24 @@
         </div>
         <table id="table" class="display">
             <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Actions</th>
-                </tr>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">NIT</th>
+                <th scope="col">Actions</th>
+            </tr>
             </thead>
             <tbody>
-                <tr th:each="user: ${users}">
-                    <td th:text="${user.correo}"></td>
-                    <td th:text="${user.password}"></td>
-                    <td th:text="${user.phone}"></td>
-                    <td><a class="btn btn-primary" th:href="@{/delete/user/{id}(id=${user.correo})}">Delete</a></td>
-                </tr>
+            <tr th:each="enterprise : ${enterprises}">
+                <td th:text="${enterprise.id}"></td>
+                <td th:text="${enterprise.nombre}"></td>
+                <td th:text="${enterprise.direccion}"></td>
+                <td th:text="${enterprise.telefono}"></td>
+                <td th:text="${enterprise.NIT}"></td>
+                <td><a class="btn btn-primary" th:href="@{/delete/enterprise/{id}(id=${enterprise.id})}">Delete</a></td>
+            </tr>
             </tbody>
         </table>
     </section>

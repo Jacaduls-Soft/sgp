@@ -9,11 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital@0;1&family=DM+Serif+Display&family=Nabla&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/welcome.css">
-    <title>Bienvendia</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/sideBar.css">
+    <title>Inicio</title>
 </head>
 <body>
-<div sec:authorize="!isAuthenticated()">
+<div sec:authorize="!isAuthenticated()" class="welcome">
     <header>
         <div class="titulo">
             <h1>JACADULS SOFT</h1>
@@ -39,9 +42,39 @@
         </div>
     </main>
 </div>
-<div sec:authorize="isAuthenticated()">
-    <h1>Autenticado</h1>
-    <a href="/loguout" th:href="@{/logout}">Logout</a>
+<div sec:authorize="isAuthenticated()" class="home">
+
+    <section class="side-bar">
+        <div class="logo">
+            <h2>JACADULS SOFT</h2>
+        </div>
+        <div class="lista">
+            <ul>
+                <li> <a href="#">Movimientos</a> </li>
+                <li> <a href="#">Usuarios</a> </li>
+                <li> <a href="#">Empresas</a> </li>
+            </ul>
+        </div>
+        <div class="logout">
+            <a href="logut" th:href="@{logout}">Salir</a>
+        </div>
+    </section>
+    <section class="main">
+        <div>
+            <h1>Sistema de gestion de ingresos y gastos</h1>
+            <div class="enlaces">
+                <div>
+                    <a href="#">Gestión de ingresos y gastos</a>
+                </div>
+                <div>
+                    <a href="#">Gestión de usuarios</a>
+                </div>
+                <div>
+                    <a href="#">Gestión de empresas</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 </html>

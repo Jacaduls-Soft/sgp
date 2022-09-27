@@ -54,7 +54,7 @@ public class frontController {
     @GetMapping("/create/user")
     public String getCreateUser(Model model){
         model.addAttribute("user", new Usuario());
-        return "createUser";
+        return "/pages/nuevo";
     }
 
     @PostMapping("/create/user")

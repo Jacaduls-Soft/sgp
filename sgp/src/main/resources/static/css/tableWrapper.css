@@ -1,0 +1,27 @@
+
+#table_wrapper{
+    width: 95%;
+    margin: 50px 0;
+    font-size: 1.6rem;
+    color: white;
+    background-color: var(--dark-grey);
+    padding: 24px;
+    border-radius: 8px;
+}
+#table_wrapper a,
+#table_wrapper div,
+#table_wrapper  select,
+#table_wrapper input
+{ color: white !important; }
+#table_wrapper table{
+    margin: 24px auto;
+    color: white;
+}
+
+#table_wrapper input {
+    padding: 2px;
+    font-size: 1.6rem;
+    margin: 0 12px;
+    border: solid 2px var(--orange);
+    outline: none;
+}

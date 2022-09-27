@@ -1,0 +1,39 @@
+:root{
+    --cyan-blue: #a8dadc;
+    --sky-blue: #457b9d;
+    --dark: #252422;
+    --dark-grey: #403d39;
+    --beige: #f1faee;
+    --salmon: #e63946;
+    --organge: #eb5e28;
+    --font-logo: 'Nabla', cursive;
+    --titles-font: 'DM Serif Display', serif;
+    --body-font: 'Asap Condensed', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+html {
+    font-size: 62.5%;
+    font-family: var(--body-font);
+}
+
+h1 {font-size: 4rem; font-family: var(--titles-font);}
+h2 {font-size: 3.2rem; font-family: var(--titles-font);}
+
+p, span, a, label{
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}

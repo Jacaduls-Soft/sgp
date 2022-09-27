@@ -1,0 +1,98 @@
+header{
+    width: 100%;
+    min-height: 10vh;
+    background-color: var;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark);
+}
+
+header .titulo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .titulo h1{
+    font-family: var(--font-logo);
+    cursor: pointer;
+}
+
+header nav{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li{
+    padding: 4px;
+    margin: 0 8px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.6rem;
+    transition: all .3s;
+    border-bottom: solid 1px transparent;
+}
+
+nav ul li a:hover{
+    border-bottom: 1px solid var(--organge);
+}
+
+main{
+    min-height: 90vh;
+    background-color: var(--dark-grey);
+}
+
+main .main-title--box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+}
+main h2{
+    color: white;
+    text-align: center;
+    font-size: 2.8rem;
+    width: 75%;
+}
+
+main .main-p--box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main p{
+    width: 75%;
+    font-size: 1.6rem;
+    color: #eeeeee;
+    text-align: justify;
+}
+
+main .main-img--box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 35px 0;
+}
+
+main img{
+    width: 300px;
+    transition: .4s linear all;
+}
+
+main img:hover{
+    transform: rotate(90deg);
+}

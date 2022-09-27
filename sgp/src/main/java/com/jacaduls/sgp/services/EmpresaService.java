@@ -8,7 +8,13 @@ import java.util.List;
 
 @Service
 public class EmpresaService {
-    private EmpresaRepository repository;
+
+    private final EmpresaRepository repository;
+
+    public EmpresaService(EmpresaRepository repository) {
+        this.repository = repository;
+    }
+
     public List<Empresa> getAll(){
         return repository.findAll();
     }

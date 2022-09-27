@@ -9,3 +9,4 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long>{
     List<Empleado> getEmpleadosByEmpresaId(Long id);
 
 }
+

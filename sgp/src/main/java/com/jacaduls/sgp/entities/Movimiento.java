@@ -1,8 +1,4 @@
 package com.jacaduls.sgp.entities;
-
-import com.jacaduls.sgp.entities.Empleado;
-import com.jacaduls.sgp.entities.Empresa;
-
 import javax.persistence.*;
 
 @Entity

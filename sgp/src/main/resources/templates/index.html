@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital@0;1&family=DM+Serif+Display&family=Nabla&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/sideBar.css">
+    <title>Inicio</title>
+</head>
+<body>
+<div sec:authorize="!isAuthenticated()" class="welcome">
+    <header>
+        <div class="titulo">
+            <h1>JACADULS SOFT</h1>
+        </div>
+        <nav>
+            <ul>
+                <li> <a href="/login">Entrar</a></li>
+                <li> <a href="/register">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="main-title--box">
+            <h2>Sistema de gestion de ingresos y gastos</h2>
+        </div>
+        <div class="main-p--box">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores deserunt architecto voluptatibus maxime veritatis similique optio quisquam, corrupti quam, perspiciatis, ipsa molestias autem accusamus iure assumenda! Animi corporis itaque expedita.
+                Quos eligendi tempore dolorum dolores debitis architecto velit explicabo soluta vel rerum. Sed doloribus atque quibusdam fugiat aliquid similique, impedit odio et unde beatae recusandae culpa possimus architecto, eum accusamus.
+                In necessitatibus, ipsum tempora expedita ratione sint eos nesciunt illum dolor quia ea comunication system ilustrationsofficia temporibus voluptatum dicta ad aperiam ducimus sunt quae. Libero facere, officiis impedit ullam vitae quisquam a?</p>
+        </div>
+        <div class="main-img--box">
+            <img src="img/skull.png" alt="skull img">
+        </div>
+    </main>
+</div>
+<div sec:authorize="isAuthenticated()" class="home">
+
+    <section class="side-bar">
+        <div class="logo">
+            <h2>JACADULS SOFT</h2>
+        </div>
+        <div class="lista">
+            <ul>
+                <li> <a href="#">Movimientos</a> </li>
+                <li> <a href="#">Usuarios</a> </li>
+                <li> <a href="#">Empresas</a> </li>
+            </ul>
+        </div>
+        <div class="logout">
+            <a href="logut" th:href="@{logout}">Salir</a>
+        </div>
+    </section>
+    <section class="main">
+        <div>
+            <h1>Sistema de gestion de ingresos y gastos</h1>
+            <div class="enlaces">
+                <div>
+                    <a href="#">Gestión de ingresos y gastos</a>
+                </div>
+                <div>
+                    <a href="#">Gestión de usuarios</a>
+                </div>
+                <div>
+                    <a href="#">Gestión de empresas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

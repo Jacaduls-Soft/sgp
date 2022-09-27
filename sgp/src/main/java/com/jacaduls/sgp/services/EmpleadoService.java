@@ -2,18 +2,15 @@ package com.jacaduls.sgp.services;
 
 import com.jacaduls.sgp.entities.Empleado;
 import com.jacaduls.sgp.repositories.EmpleadoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class EmpleadoService {
-    private final EmpleadoRepository repository;
-
-    public EmpleadoService(EmpleadoRepository repository) {
-        this.repository = repository;
-    }
-
+    @Autowired
+    EmpleadoRepository repository;
     public List<Empleado> getAll(){
         return repository.findAll();
     }
@@ -41,4 +38,11 @@ public class EmpleadoService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    //nuevos metodos
+
+    public List<Empleado> getEmpleadosByEmpresaId(Long id){
+        return repository.getEmpleadosByEmpresaId(id);
+    }
 }
+

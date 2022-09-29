@@ -1,57 +1,75 @@
 <!DOCTYPE html>
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5%22%3E">-->
-<html xmlns:th="https://www.thymeleaf.org"
+<html lang="es"
+      xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital@0;1&family=DM+Serif+Display&family=Nabla&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/sideBar.css" />
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $("#table").DataTable();
+        })
+    </script>
+    <title>Nuevo</title>
 </head>
 <body>
-
-<div class="container" sec:authorize="isAuthenticated()">
-    <div class="row">
-        <div class="col-md-12">
-            <form method="post" th:object="${employee}" th:action="@{/create/employee}">
-                <div class="form-group">
-                    <label for="nombre">Nombre empleado</label>
-                    <input type="text" class="form-control" th:field="*{nombre}" id="nombre"  placeholder="Enter email" >
-                </div>
-                <div class="form-group">
-                    <input class="form-control" hidden th:field="*{usuario}" id="usuario">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" hidden th:field="*{correo}" id="correo">
-                </div>
-
-
-                <div class="form-group">
-                    <select name="empresas" id="empresa">
-                        <option th:each="enterprise: ${enterprises}" th:value="${enterprise}" th:text="${enterprise.nombre}" th:field="*{empresa}"></option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <select name="roles" id="rol">
-                        <option th:each="rol: ${roles}" th:value="${rol}" th:text="${rol}" th:field="*{roles}"></option>
-                    </select>
-                </div>
-
-
-
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-
-        </div>
+<section class="side-bar">
+    <div class="logo">
+        <h2>JACADULS SOFT</h2>
     </div>
-</div>
+    <div class="lista">
+        <ul>
+            <li> <a href="#">Movimientos</a> </li>
+            <li> <a href="#">Usuarios</a> </li>
+            <li> <a href="#">Empresas</a> </li>
+        </ul>
+    </div>
+</section>
+<section class="main">
+    <div class="header">
+        <h2>Sistema de gestión de ingresos y gastos</h2>
+        <span>Ingresos y egresos</span>
+    </div>
+    <div class="form-box">
+        <h2>Nuevo empleado</h2>
+        <form method="post" th:object="${employee}" th:action="@{/create/employee}">
+            <div class="form-group">
+                <label for="nombre">Nombre empleado</label>
+                <input type="text" class="form-control" th:field="*{nombre}" id="nombre"  placeholder="Enter name" >
+            </div>
+            <div class="form-group">
+                <input class="form-control" hidden th:field="*{usuario}" id="usuario">
+            </div>
+            <div class="form-group">
+                <input class="form-control" hidden th:field="*{correo}" id="correo">
+            </div>
+            <div class="form-group">
+                <select name="empresas" id="empresa">
+                    <option th:each="enterprise: ${enterprises}" th:value="${enterprise}" th:text="${enterprise.nombre}" th:field="*{empresa}"></option>
+                </select>
+            </div>
 
+            <div class="form-group">
+                <select name="roles" id="rol">
+                    <option th:each="rol: ${roles}" th:value="${rol}" th:text="${rol}" th:field="*{roles}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    </table>
+</section>
 </body>
 </html>

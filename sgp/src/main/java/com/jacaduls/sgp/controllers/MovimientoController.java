@@ -17,10 +17,10 @@ public class MovimientoController {
         this.service = service;
     }
 
-    @GetMapping("/enterprises/{id}/movements")
-    ResponseEntity<List<Movimiento>> getMovimientosByEnterpriseId(@PathVariable Long id){
-        return service.getByEnterpriseById(id);
-    }
+//    @GetMapping("/enterprises/{id}/movements")
+//    ResponseEntity<List<Movimiento>> getMovimientosByEnterpriseId(@PathVariable Long id){
+//        return service.getByEnterpriseById(id);
+//    }
 
 //    @PostMapping("/enterprises/{id}/movements")
 //    Movimiento addMovimiento (@RequestBody Movimiento newMovimiento, @PathVariable Long id) {

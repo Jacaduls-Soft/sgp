@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="../css/index.css" />
+
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/sideBar.css" />
+    <link rel="stylesheet" href="/css/createMovement.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital@0;1&family=DM+Serif+Display&family=Nabla&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
@@ -39,19 +47,16 @@
     </div>
     <div class="form-box">
         <h2>Nuevo movimiento de dinero</h2>
-        <form>
-            <label>
-                Correo
-                <input type="email"/>
-            </label>
-            <label>
-                Contraseña
-                <input type="password"/>
-            </label>
-            <label>
-                Fecha
-                <input type="date"/>
-            </label>
+        <form method="post" th:object="${movement}" th:action="@{/create/movement}">
+            <div class="form-group">
+                <label for="monto">Monto</label>
+                <input type="text" class="form-control" th:field="*{monto}" id="monto"  placeholder="Ingresa el monto" />
+            </div>
+            <div class="form-group">
+                <label for="concepto">Concepto</label>
+                <input type="concepto" class="form-control" th:field="*{concepto}" id="concepto" placeholder="Ingresa el concepto" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
     </table>

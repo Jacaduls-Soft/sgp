@@ -7,14 +7,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/sideBar.css" />
-    <link rel="stylesheet" href="css/tableWrapper.css" />
-    <link rel="stylesheet" href="css/users.css" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/sideBar.css" />
+    <link rel="stylesheet" href="/css/tableWrapper.css" />
+    <link rel="stylesheet" href="/css/users.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital@0;1&family=DM+Serif+Display&family=Nabla&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -39,36 +43,36 @@
         </div>
         <div class="lista">
             <ul>
-                <li> <a href="#">Movimientos</a> </li>
-                <li> <a href="#">Usuarios</a> </li>
-                <li> <a href="#">Empresas</a> </li>
+                <li> <a th:href='@{/enterprises/{id}/movements (id = ${empresaId} )}'>Movimientos</a> </li>
+                <li> <a href="/employees">Empleados</a> </li>
+                <li> <a href="/enterprises">Empresas</a> </li>
             </ul>
         </div>
     </section>
     <section class="main">
         <div class="header">
             <h2>Sistema de gestión de ingresos y gastos</h2>
-            <span>Usuarios</span>
+            <span>Movimientos</span>
             <div class="boton-box">
-                <a href="/create/user"><button>Nuevo</button></a>
+                <a href="/create/movement"><button>Nuevo</button></a>
             </div>
         </div>
         <table id="table" class="display">
             <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Actions</th>
-                </tr>
+            <tr>
+<!--                <th scope="col">Id</th>-->
+                <th scope="col">Monto</th>
+                <th scope="col">Concepto</th>
+                <th scope="col">Empleado</th>
+            </tr>
             </thead>
             <tbody>
-                <tr th:each="user: ${users}">
-                    <td th:text="${user.correo}"></td>
-                    <td th:text="${user.password}"></td>
-                    <td th:text="${user.phone}"></td>
-                    <td><a class="btn btn-primary" th:href="@{/delete/user/{id}(id=${user.correo})}">Delete</a></td>
-                </tr>
+            <tr th:each="movement : ${movements}">
+                <td th:text="${movement.id}"></td>
+                <td th:text="${movement.monto}"></td>
+                <td th:text="${movement.concepto}"></td>
+                <td th:text="${movement.empleado}"></td>
+            </tr>
             </tbody>
         </table>
     </section>
